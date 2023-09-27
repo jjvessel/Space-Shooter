@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bppi014eq6h8c"]
+[gd_scene load_steps=14 format=3 uid="uid://bppi014eq6h8c"]
 
 [ext_resource type="PackedScene" uid="uid://heoy3maeva0u" path="res://player/player.tscn" id="1_6i0mc"]
+[ext_resource type="Texture2D" uid="uid://cnvxyb1l65i85" path="res://Assets/background.jpg" id="1_u6bsq"]
 [ext_resource type="Script" path="res://player/Player_Container.gd" id="2_vbfgc"]
 [ext_resource type="PackedScene" uid="uid://d5s1m6f0uuig" path="res://Asteroid/asteroid.tscn" id="2_xm8ck"]
 [ext_resource type="PackedScene" uid="uid://dww7rarg4o2vj" path="res://Enemy/Enemy.tscn" id="3_xw1l4"]
@@ -14,6 +15,11 @@
 [ext_resource type="AudioStream" uid="uid://bfvvrijntdm5w" path="res://Assets/explosion.wav" id="12_rhcga"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(574.533, 324.936)
+scale = Vector2(-0.219689, -0.184343)
+texture = ExtResource("1_u6bsq")
 
 [node name="Asteroid_Container" type="Node2D" parent="."]
 
@@ -75,6 +81,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -3.0
+offset_right = 4.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -83,6 +93,7 @@ autostart = true
 
 [node name="Menu" type="Control" parent="UI/HUD"]
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

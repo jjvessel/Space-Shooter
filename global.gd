@@ -58,6 +58,28 @@ func _resize():
 		hud.update_lives()
 
 
+func _unhandled_input(event):
+	if event.is_action_pressed("menu"):
+		var Menu = get_node_or_null("/root/Game/UI/Menu")
+		if Menu == null:
+			get_tree().quit()
+		else:
+			if Menu.visible:
+				get_tree().paused = false
+				Menu.hide()
+			else:
+				get_tree().paused = true
+				Menu.show()
+
+
+func _physics_process(_delta):
+	var Asteroid_Container = get_node_or_null("/root/Game/Asteroid_Container")
+	var Enemy_Container = get_node_or_null("/root/Game/Enemy_Container")
+	if Asteroid_Container != null and Enemy_Container != null:
+		if Asteroid_Container.get_child_count() == 0 and Enemy_Container.get_child_count() == 0:
+			get_tree().change_scene_to_file("res://UI/End_Game.tscn")
+
+
 
 func reset():
 	get_tree().paused = false
